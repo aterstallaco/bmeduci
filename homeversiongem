@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavioral Medicine Research Lab - UC Irvine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* YOUR ORIGINAL VARIABLES */
+        :root {
+            --uci-blue: #255799;
+            --uci-gold: #fecc07;
+            --darkest-blue: #002244;
+            --teal-blue: #0083b3;
+            --dark-gray: #555759;
+            --light-gray: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--darkest-blue); }
+
+        /* HEADER */
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+        }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--darkest-blue); font-size: 1.2rem; margin-left: 10px; }
+        nav { margin-left: auto; display: flex; gap: 2rem; }
+        nav a { text-decoration: none; color: var(--dark-gray); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--uci-blue); }
+
+        /* INTEGRATED HERO WITH SLIVERS */
+        .hero {
+            position: relative;
+            background: #000;
+            overflow: visible; /* Changed to allow the text box to hang out */
+        }
+
+        .hero-background {
+            display: flex;
+            height: 60vh;
+            gap: 4px;
+            opacity: 0.8;
+        }
+
+        .hero-column {
+            flex: 1;
+            background-image: url('hero.jpg'); /* YOUR IMAGE HERE */
+            background-size: cover;
+            background-position: center;
+            transition: 0.5s ease;
+        }
+        
+        /* Slight stagger for the sliver look from your original idea */
+        .hero-column:nth-child(even) { transform: translateY(20px); }
+        .hero-column:nth-child(odd) { transform: translateY(-10px); }
+
+        /* THE NEW TEXT BOX (PROTECTS FACES) */
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-text-box {
+            position: relative;
+            z-index: 10;
+            background: white;
+            padding: 3rem;
+            max-width: 650px;
+            margin-top: -100px; /* Pulls the box up to overlap the image */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-left: 8px solid var(--uci-gold);
+        }
+
+        .hero-text-box h1 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--darkest-blue); }
+        .hero-text-box p { font-size: 1.1rem; color: var(--dark-gray); margin-bottom: 2rem; }
+
+        /* PILLARS & SECTIONS (FROM YOUR ORIGINAL) */
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;}
+        .pillar-card { 
+            padding: 2.5rem; background: var(--light-gray); border-top: 4px solid var(--uci-blue); 
+            transition: 0.3s; opacity: 0; transform: translateY(20px); 
+        }
+        .pillar-card.visible { opacity: 1; transform: translateY(0); }
+
+        /* RESEARCH GRID */
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .study-card { 
+            background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden;
+            opacity: 0; transform: translateY(20px); transition: 0.5s;
+        }
+        .study-card.visible { opacity: 1; transform: translateY(0); }
+        .study-header { background: var(--uci-blue); color: white; padding: 1.5rem; }
+        .study-status { background: var(--uci-gold); color: var(--darkest-blue); padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; display: inline-block; }
+        .study-body { padding: 1.5rem; }
+
+        /* BUTTONS */
+        .btn { 
+            display: inline-block; padding: 0.8rem 1.8rem; background: var(--uci-blue); color: white; 
+            text-decoration: none; font-family: 'Montserrat'; font-weight: 600; font-size: 0.8rem; border-radius: 4px;
+        }
+
+        /* PUBLICATIONS */
+        .pub-list { margin-top: 2rem; }
+        .pub-item { padding:
