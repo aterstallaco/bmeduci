@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Behavioral Medicine Research Lab - UC Irvine</title>
+    <title>BMed Lab | UC Irvine</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* YOUR ORIGINAL VARIABLES */
         :root {
             --uci-blue: #255799;
             --uci-gold: #fecc07;
@@ -22,15 +21,15 @@
             font-family: 'Lora', serif;
             color: var(--dark-gray);
             line-height: 1.7;
-            overflow-x: hidden;
+            background: white;
         }
 
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--darkest-blue); }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: var(--darkest-blue); }
 
-        /* HEADER */
+        /* Navigation */
         .header {
             background: white;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -43,86 +42,162 @@
             display: flex;
             align-items: center;
         }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--darkest-blue); font-size: 1.2rem; margin-left: 10px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--darkest-blue); font-size: 1.2rem; margin-left: 1rem; }
         nav { margin-left: auto; display: flex; gap: 2rem; }
-        nav a { text-decoration: none; color: var(--dark-gray); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--uci-blue); }
+        nav a { text-decoration: none; color: var(--dark-gray); font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.9rem; }
 
-        /* INTEGRATED HERO WITH SLIVERS */
+        /* Hero Section with Slivers */
         .hero {
             position: relative;
-            background: #000;
-            overflow: visible; /* Changed to allow the text box to hang out */
-        }
-
-        .hero-background {
+            height: 65vh;
+            min-height: 500px;
+            background: var(--darkest-blue);
+            overflow: hidden;
             display: flex;
-            height: 60vh;
-            gap: 4px;
-            opacity: 0.8;
         }
-
         .hero-column {
             flex: 1;
-            background-image: url('hero.jpg'); /* YOUR IMAGE HERE */
+            border-right: 1px solid rgba(255,255,255,0.1);
+            background-image: url('hero.jpg'); /* This looks for your hero.jpg */
             background-size: cover;
             background-position: center;
-            transition: 0.5s ease;
+            opacity: 0.6;
         }
         
-        /* Slight stagger for the sliver look from your original idea */
-        .hero-column:nth-child(even) { transform: translateY(20px); }
-        .hero-column:nth-child(odd) { transform: translateY(-10px); }
-
-        /* THE NEW TEXT BOX (PROTECTS FACES) */
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-        }
-
-        .hero-text-box {
-            position: relative;
+        /* The Text Box - Adjusted to overlap the bottom of the hero */
+        .hero-overlay-content {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
             z-index: 10;
-            background: white;
+            background: rgba(2, 34, 68, 0.9);
             padding: 3rem;
-            max-width: 650px;
-            margin-top: -100px; /* Pulls the box up to overlap the image */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            max-width: 600px;
+            color: white;
             border-left: 8px solid var(--uci-gold);
         }
+        .hero-overlay-content h1 { color: white; font-size: 2.5rem; margin-bottom: 1rem; }
 
-        .hero-text-box h1 { font-size: 2.8rem; margin-bottom: 1rem; color: var(--darkest-blue); }
-        .hero-text-box p { font-size: 1.1rem; color: var(--dark-gray); margin-bottom: 2rem; }
-
-        /* PILLARS & SECTIONS (FROM YOUR ORIGINAL) */
+        /* Sections */
         section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2.5rem; position: relative; margin-bottom: 2rem; }
         
-        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 4rem;}
-        .pillar-card { 
-            padding: 2.5rem; background: var(--light-gray); border-top: 4px solid var(--uci-blue); 
-            transition: 0.3s; opacity: 0; transform: translateY(20px); 
+        /* Fixed your original CSS accent line here */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--uci-blue);
         }
-        .pillar-card.visible { opacity: 1; transform: translateY(0); }
 
-        /* RESEARCH GRID */
-        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .study-card { 
-            background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden;
-            opacity: 0; transform: translateY(20px); transition: 0.5s;
+        /* Pillars Grid */
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pillar-card { 
+            padding: 2.5rem; background: white; border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid var(--uci-blue);
         }
-        .study-card.visible { opacity: 1; transform: translateY(0); }
+
+        /* Research Cards */
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .study-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .study-header { background: var(--uci-blue); color: white; padding: 1.5rem; }
-        .study-status { background: var(--uci-gold); color: var(--darkest-blue); padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; display: inline-block; }
+        .study-status { background: var(--uci-gold); color: var(--darkest-blue); padding: 2px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; }
         .study-body { padding: 1.5rem; }
 
-        /* BUTTONS */
-        .btn { 
-            display: inline-block; padding: 0.8rem 1.8rem; background: var(--uci-blue); color: white; 
-            text-decoration: none; font-family: 'Montserrat'; font-weight: 600; font-size: 0.8rem; border-radius: 4px;
-        }
+        /* Contact Section */
+        .contact-section { background: var(--darkest-blue); color: white; padding: 5rem 2rem; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        footer { text-align: center; padding: 3rem; background: #001122; color: white; opacity: 0.6; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
 
-        /* PUBLICATIONS */
-        .pub-list { margin-top: 2rem; }
-        .pub-item { padding:
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-text">BMed Lab</div>
+            <nav>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-column"></div>
+        <div class="hero-column"></div>
+        <div class="hero-column"></div>
+        <div class="hero-column"></div>
+        <div class="hero-column"></div>
+        <div class="hero-overlay-content">
+            <h1>Behavioral Medicine Research Lab</h1>
+            <p>Advancing understanding of biobehavioral processes in chronic disease and cancer survivorship.</p>
+        </div>
+    </div>
+
+    <section>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <h3>Research Excellence</h3>
+                <p>Innovative research advancing understanding of psychological adjustment.</p>
+            </div>
+            <div class="pillar-card">
+                <h3>Cancer Survivorship</h3>
+                <p>Evidence-based interventions to improve quality of life.</p>
+            </div>
+            <div class="pillar-card">
+                <h3>Biobehavioral Approach</h3>
+                <p>Integrating biological and psychological perspectives for resilience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <h2 class="section-title">Current Research Studies</h2>
+        <div class="research-grid">
+            <div class="study-card">
+                <div class="study-header">
+                    <span class="study-status">RECRUITING</span>
+                    <h3>Cancer Survivorship & Quality of Life</h3>
+                </div>
+                <div class="study-body">
+                    <p>Factors influencing long-term outcomes in survivors.</p>
+                </div>
+            </div>
+            <div class="study-card">
+                <div class="study-header">
+                    <span class="study-status">ACTIVE</span>
+                    <h3>Biobehavioral Stress Response</h3>
+                </div>
+                <div class="study-body">
+                    <p>Interplay between stress and physiological health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-grid">
+            <div>
+                <h3 style="color: var(--uci-gold)">Contact Us</h3>
+                <p>bmedlab@uci.edu</p>
+                <p>UC Irvine, Social Ecology II</p>
+            </div>
+            <div>
+                <h3 style="color: var(--uci-gold)">Participate</h3>
+                <p>Learn how to join our current studies.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Behavioral Medicine Research Lab, UC Irvine</p>
+    </footer>
+
+</body>
+</html>
