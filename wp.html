@@ -241,7 +241,7 @@
         .hero-content {
             position: relative;
             max-width: 1400px;
-            margin: -140px auto 0;
+            margin: -80px auto 0;
             padding: 0 2rem;
             z-index: 10;
             display: flex;
@@ -404,14 +404,6 @@
             transition: all 0.4s ease;
         }
 
-        .pillar-card:nth-child(2) {
-            border-top-color: var(--teal);
-        }
-
-        .pillar-card:nth-child(3) {
-            border-top-color: var(--orange);
-        }
-
         .pillar-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 35px rgba(0,0,0,0.1);
@@ -426,14 +418,6 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 1.25rem;
-        }
-
-        .pillar-card:nth-child(2) .pillar-icon {
-            background: var(--teal);
-        }
-
-        .pillar-card:nth-child(3) .pillar-icon {
-            background: var(--orange);
         }
 
         .pillar-icon svg {
@@ -470,7 +454,7 @@
             right: 0;
             top: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--uci-blue) 0%, var(--teal) 50%, var(--uci-gold) 100%);
+            background: var(--uci-gold);
         }
 
         .stats-grid {
@@ -492,18 +476,6 @@
             color: var(--uci-blue);
             line-height: 1;
             margin-bottom: 0.5rem;
-        }
-
-        .stat-item:nth-child(2) .stat-number {
-            color: var(--teal);
-        }
-
-        .stat-item:nth-child(3) .stat-number {
-            color: var(--navy);
-        }
-
-        .stat-item:nth-child(4) .stat-number {
-            color: var(--orange);
         }
 
         .stat-label {
